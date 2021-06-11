@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<JFXTabPane fx:controller="org.thekiddos.educationalportal.controllers.RegisterLoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="1000.0" tabMaxWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<JFXTabPane fx:controller="org.thekiddos.educationalportal.gui.controllers.RegisterLoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="1000.0" tabMaxWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <styleClass>
       <String fx:value="body" />
       <String fx:value="tab-parent" />
@@ -98,7 +98,7 @@
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" styleClass="image-button">
                                  <image>
-                                    <Image url="@../../../../static/images/instructor.jpg" />
+                                    <Image url="@../../../../../static/images/instructor.jpg" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -113,7 +113,7 @@
                            <graphic>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" styleClass="image-button">
                                  <image>
-                                    <Image url="@../../../../static/images/student.jpg" />
+                                    <Image url="@../../../../../static/images/student.jpg" />
                                  </image>
                               </ImageView>
                            </graphic>

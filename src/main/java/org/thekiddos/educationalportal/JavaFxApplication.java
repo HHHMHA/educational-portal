@@ -8,7 +8,9 @@ import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.thekiddos.educationalportal.controllers.RegisterLoginController;
+import org.thekiddos.educationalportal.constants.ViewName;
+import org.thekiddos.educationalportal.gui.SceneManager;
+import org.thekiddos.educationalportal.gui.controllers.RegisterLoginController;
 
 public class JavaFxApplication extends Application {
     private ConfigurableApplicationContext applicationContext;
@@ -25,8 +27,11 @@ public class JavaFxApplication extends Application {
     @Override
     public void start( Stage stage ) throws Exception {
         FxWeaver fxWeaver = applicationContext.getBean( FxWeaver.class );
-        Parent root = fxWeaver.loadView( RegisterLoginController.class );
-        Scene scene = new Scene( root );
+        Parent loginRegisterView = fxWeaver.loadView( RegisterLoginController.class );
+        Scene scene = new Scene( loginRegisterView );
+
+        SceneManager.setScene( scene );
+        SceneManager.addView( ViewName.LOGIN_REGISTER, loginRegisterView );
         stage.setScene( scene );
         stage.show();
     }

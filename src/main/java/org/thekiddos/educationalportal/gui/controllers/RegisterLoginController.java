@@ -1,4 +1,4 @@
-package org.thekiddos.educationalportal.controllers;
+package org.thekiddos.educationalportal.gui.controllers;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
