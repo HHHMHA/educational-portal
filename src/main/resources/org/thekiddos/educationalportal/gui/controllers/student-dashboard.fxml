@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:controller="org.thekiddos.educationalportal.gui.controllers.StudentDashboardController" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="body" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextField alignment="CENTER" onAction="#search" promptText="Search" styleClass="text-field">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXListView fx:id="courseListView" VBox.vgrow="ALWAYS" />
+      <HBox alignment="CENTER" VBox.vgrow="NEVER">
+         <children>
+            <JFXToggleButton fx:id="allCoursesBtn" onAction="#showAllCourses" text="All Courses" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+            </JFXToggleButton>
+            <JFXButton alignment="CENTER" disable="true" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onAction="#enrollInCourse" styleClass="btn" text="Enroll" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>

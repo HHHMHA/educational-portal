@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:controller="org.thekiddos.educationalportal.gui.controllers.InstructorDashboardController" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="body" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextField alignment="CENTER" onAction="#search" promptText="Search" styleClass="text-field">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXListView fx:id="courseListView" />
+      <JFXTextField fx:id="courseNameField" alignment="CENTER" promptText="Name" styleClass="text-field">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextArea fx:id="courseDescriptionField" promptText="Description" styleClass="text-area" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+      </JFXTextArea>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <JFXButton alignment="CENTER" defaultButton="true" maxWidth="1.7976931348623157E308" onAction="#addCourse" text="Add Course" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-default" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton fx:id="courseDetailsBtn" alignment="CENTER" disable="true" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onAction="#showCourseDetails" styleClass="btn" text="Details" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>
