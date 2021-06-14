@@ -15,6 +15,7 @@ import org.thekiddos.educationalportal.gui.controllers.RegisterLoginController;
 public class JavaFxApplication extends Application {
     private ConfigurableApplicationContext applicationContext;
 
+    // TODO: use Dtos as services input
     @Override
     public void init() {
         String[] args = getParameters().getRaw().toArray(new String[0]);
