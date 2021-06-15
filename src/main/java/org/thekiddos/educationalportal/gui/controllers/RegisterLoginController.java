@@ -17,7 +17,6 @@ import org.thekiddos.educationalportal.services.UserService;
 @Component
 @FxmlView( "register-login.fxml" )
 public class RegisterLoginController {
-    private final UserService userService;
     public JFXTextField nameField;
     public JFXPasswordField passwordField;
     public JFXTextField registerNameField;
@@ -26,10 +25,16 @@ public class RegisterLoginController {
     public JFXRadioButton instructorRadioBtn;
     public JFXRadioButton studentRadioBtn;
 
+    private final UserService userService;
+    private final InstructorDashboardController instructorDashboardController;
+    private final StudentDashboardController studentDashboardController;
+
     @Autowired
-    public RegisterLoginController( UserService userService ) {
+    public RegisterLoginController( UserService userService, InstructorDashboardController instructorDashboardController, StudentDashboardController studentDashboardController ) {
         this.userService = userService;
         // TODO: Add Validators for fields
+        this.instructorDashboardController = instructorDashboardController;
+        this.studentDashboardController = studentDashboardController;
     }
 
     public void initialize() {
@@ -47,6 +52,7 @@ public class RegisterLoginController {
             }
         }
         catch ( Exception e ) {
+            e.printStackTrace();
             Utils.showStandardErrorAlert( e.getMessage() );
         }
     }
@@ -57,16 +63,18 @@ public class RegisterLoginController {
             if ( user.isStudent() ) {
                 SceneManager.setView( ViewName.STUDENT_DASHBOARD );
             } else {
+                instructorDashboardController.refresh();
                 SceneManager.setView( ViewName.INSTRUCTOR_DASHBOARD );
             }
         }
         catch ( Exception e ) {
+            e.printStackTrace();
             Utils.showStandardErrorAlert( e.getMessage() );
         }
     }
 
     private String getUserType() {
-        switch ( (String) userType.getUserData() ) {
+        switch ( (String) userType.getSelectedToggle().getUserData() ) {
             case UserType.STUDENT: return UserType.STUDENT;
             case UserType.INSTRUCTOR: return UserType.INSTRUCTOR;
             default: return null;

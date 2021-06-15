@@ -9,11 +9,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.net.URL;
 
 public final class Utils {
-    public static final String STYLESHEET_PATH = Utils.getResource( "static/css/style.css" ).toExternalForm();
+    public static final String STYLESHEET_PATH = Utils. getResource( "static/css/style.css" ).toExternalForm();
     public static final String ROOT_STYLE_CLASS = "body";
     public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
-    private static final ClassLoader CLASS_LOADER = Utils.class.getClassLoader();
+    private static ClassLoader classLoader = Utils.class.getClassLoader();
     private static final Alert errorAlert = new Alert( Alert.AlertType.ERROR, "", ButtonType.OK );
 
     static {
@@ -27,8 +27,9 @@ public final class Utils {
      * @throws IllegalArgumentException if the file can't be found
      */
     public static URL getResource( String fileName ) {
-        assert CLASS_LOADER != null;
-        URL resource = CLASS_LOADER.getResource( fileName );
+        if ( classLoader == null )
+            classLoader = Utils.class.getClassLoader();
+        URL resource = classLoader.getResource( fileName );
 
         if ( resource == null )
             throw new IllegalArgumentException( "file is not found!" );

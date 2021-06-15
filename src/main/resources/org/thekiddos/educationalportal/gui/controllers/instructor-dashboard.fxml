@@ -11,7 +11,7 @@
 
 <VBox fx:controller="org.thekiddos.educationalportal.gui.controllers.InstructorDashboardController" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="body" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXTextField alignment="CENTER" onAction="#search" promptText="Search" styleClass="text-field">
+      <JFXTextField alignment="CENTER" onAction="#search" fx:id="searchField" promptText="Search" styleClass="text-field">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>

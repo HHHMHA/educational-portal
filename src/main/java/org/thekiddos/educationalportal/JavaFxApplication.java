@@ -10,6 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.thekiddos.educationalportal.constants.ViewName;
 import org.thekiddos.educationalportal.gui.SceneManager;
+import org.thekiddos.educationalportal.gui.controllers.InstructorDashboardController;
 import org.thekiddos.educationalportal.gui.controllers.RegisterLoginController;
 
 public class JavaFxApplication extends Application {
@@ -29,10 +30,14 @@ public class JavaFxApplication extends Application {
     public void start( Stage stage ) throws Exception {
         FxWeaver fxWeaver = applicationContext.getBean( FxWeaver.class );
         Parent loginRegisterView = fxWeaver.loadView( RegisterLoginController.class );
+        Parent instructorDashboardView = fxWeaver.loadView( InstructorDashboardController.class );
+
         Scene scene = new Scene( loginRegisterView );
 
         SceneManager.setScene( scene );
         SceneManager.addView( ViewName.LOGIN_REGISTER, loginRegisterView );
+        SceneManager.addView( ViewName.INSTRUCTOR_DASHBOARD, instructorDashboardView );
+
         stage.setScene( scene );
         stage.show();
     }
