@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
+import java.util.Set;
 
 @Data
 @Entity
@@ -19,6 +20,9 @@ public class Course {
 
     @ManyToOne( cascade = CascadeType.DETACH ) @NotNull
     User instructor;
+
+    @ManyToMany(mappedBy="enrolledInCourses")
+    private Set<User> students;
 
     @Override
     public boolean equals( Object o ) {
@@ -42,5 +46,12 @@ public class Course {
                 ", description='" + description + '\'' +
                 ", instructor=" + instructor.getUsername() +
                 ')';
+    }
+
+    public void addStudent( User student ) {
+        if ( !student.isStudent() )
+            throw new RuntimeException( "Not a student!" );
+
+        students.add( student );
     }
 }

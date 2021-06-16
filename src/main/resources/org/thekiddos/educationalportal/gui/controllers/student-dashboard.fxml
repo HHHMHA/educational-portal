@@ -10,7 +10,7 @@
 
 <VBox fx:controller="org.thekiddos.educationalportal.gui.controllers.StudentDashboardController" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="body" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXTextField alignment="CENTER" onAction="#search" promptText="Search" styleClass="text-field">
+      <JFXTextField alignment="CENTER" onAction="#search" promptText="Search" fx:id="searchField" styleClass="text-field">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
@@ -18,12 +18,12 @@
       <JFXListView fx:id="courseListView" VBox.vgrow="ALWAYS" />
       <HBox alignment="CENTER" VBox.vgrow="NEVER">
          <children>
-            <JFXToggleButton fx:id="allCoursesBtn" onAction="#showAllCourses" text="All Courses" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+            <JFXToggleButton fx:id="allCoursesBtn" onAction="#toggleAllCourses" text="All Courses" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Times New Roman Bold" size="12.0" />
                </font>
             </JFXToggleButton>
-            <JFXButton alignment="CENTER" disable="true" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onAction="#enrollInCourse" styleClass="btn" text="Enroll" HBox.hgrow="ALWAYS">
+            <JFXButton alignment="CENTER" disable="true" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" fx:id="enrollBtn" onAction="#enrollInCourse" styleClass="btn" text="Enroll" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Times New Roman Bold" size="12.0" />
                </font>

@@ -9,4 +9,8 @@ public interface CourseService {
     void addCourse( User instructor, String name, String description );
 
     List<Course> getCourses( User instructor );
+
+    List<Course> getAll();
+
+    void enrollInCourse( Course course, User student );
 }

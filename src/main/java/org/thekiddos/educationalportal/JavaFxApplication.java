@@ -12,6 +12,7 @@ import org.thekiddos.educationalportal.constants.ViewName;
 import org.thekiddos.educationalportal.gui.SceneManager;
 import org.thekiddos.educationalportal.gui.controllers.InstructorDashboardController;
 import org.thekiddos.educationalportal.gui.controllers.RegisterLoginController;
+import org.thekiddos.educationalportal.gui.controllers.StudentDashboardController;
 
 public class JavaFxApplication extends Application {
     private ConfigurableApplicationContext applicationContext;
@@ -31,12 +32,14 @@ public class JavaFxApplication extends Application {
         FxWeaver fxWeaver = applicationContext.getBean( FxWeaver.class );
         Parent loginRegisterView = fxWeaver.loadView( RegisterLoginController.class );
         Parent instructorDashboardView = fxWeaver.loadView( InstructorDashboardController.class );
+        Parent studentDashboardView = fxWeaver.loadView( StudentDashboardController.class );
 
         Scene scene = new Scene( loginRegisterView );
 
         SceneManager.setScene( scene );
         SceneManager.addView( ViewName.LOGIN_REGISTER, loginRegisterView );
         SceneManager.addView( ViewName.INSTRUCTOR_DASHBOARD, instructorDashboardView );
+        SceneManager.addView( ViewName.STUDENT_DASHBOARD, studentDashboardView );
 
         stage.setScene( scene );
         stage.show();
