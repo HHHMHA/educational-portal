@@ -7,20 +7,26 @@ import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Controller;
+import org.thekiddos.educationalportal.models.User;
+import org.thekiddos.educationalportal.models.Course;
 
 @Controller
 @FxmlView( "course-details.fxml" )
 public class CourseDetailController {
     public JFXTextField courseNameField;
     public JFXTextArea courseDescriptionField;
-    public JFXListView studentListView;
-    public JFXToggleButton enrollRequestsBtn;
+    public JFXListView<User> studentListView;
 
-    public void showRequests( ActionEvent actionEvent ) {
-
+    public void showCourse( Course course ) {
+        courseNameField.setText( course.getName() );
+        courseDescriptionField.setText( course.getDescription() );
+        
+        fillStudents( course.getStudents() );
     }
-
-    public void approveStudent( ActionEvent actionEvent ) {
-
+    
+    // TODO: set type list or collection
+    private void fillStudents( Set<Student> students ) {
+        studentListView.getItems().clear();
+        studentListView.getItems().addAll( students );
     }
 }

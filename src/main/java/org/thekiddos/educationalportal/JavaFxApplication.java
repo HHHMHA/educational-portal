@@ -33,6 +33,7 @@ public class JavaFxApplication extends Application {
         Parent loginRegisterView = fxWeaver.loadView( RegisterLoginController.class );
         Parent instructorDashboardView = fxWeaver.loadView( InstructorDashboardController.class );
         Parent studentDashboardView = fxWeaver.loadView( StudentDashboardController.class );
+        Parent courseDetailsView = fxWeaver.loadView( CourseDetailController.class );
 
         Scene scene = new Scene( loginRegisterView );
 
@@ -40,6 +41,7 @@ public class JavaFxApplication extends Application {
         SceneManager.addView( ViewName.LOGIN_REGISTER, loginRegisterView );
         SceneManager.addView( ViewName.INSTRUCTOR_DASHBOARD, instructorDashboardView );
         SceneManager.addView( ViewName.STUDENT_DASHBOARD, studentDashboardView );
+        SceneManager.addView( ViewName.COURSE_DETAILS_INSTRUCTOR, courseDetailsView );
 
         stage.setScene( scene );
         stage.show();

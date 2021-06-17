@@ -30,12 +30,14 @@ public class InstructorDashboardController {
 
     private final UserService userService;
     private final CourseService courseService;
+    private final CourseDetailsController courseDetailsController;
     private List<Course> courseList = new ArrayList<>();
 
     @Autowired
-    public InstructorDashboardController( UserService userService, CourseService courseService ) {
+    public InstructorDashboardController( UserService userService, CourseService courseService, CourseDetailsController courseDetailsController ) {
         this.userService = userService;
         this.courseService = courseService;
+        this.courseDetailsController = courseDetailsController;
     }
 
     public void initialize() {
@@ -88,6 +90,8 @@ public class InstructorDashboardController {
     }
 
     public void showCourseDetails( ActionEvent actionEvent ) {
+        Course course = courseListView.getSelectionModel().getSelectedItem();
+        courseDetailsController.showCourse( course );
         SceneManager.setView( ViewName.COURSE_DETAILS_INSTRUCTOR );
     }
 }

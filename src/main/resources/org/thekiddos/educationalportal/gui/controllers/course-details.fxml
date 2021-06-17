@@ -22,19 +22,5 @@
          </font>
       </JFXTextArea>
       <JFXListView fx:id="studentListView" VBox.vgrow="ALWAYS" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <JFXToggleButton fx:id="enrollRequestsBtn" onAction="#showRequests" text="Enrollment Requests">
-               <font>
-                  <Font name="Times New Roman Bold" size="12.0" />
-               </font>
-            </JFXToggleButton>
-            <JFXButton alignment="CENTER" disable="true" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onAction="#approveStudent" styleClass="btn" text="Approve" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font name="Times New Roman Bold" size="12.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </HBox>
    </children>
 </VBox>
