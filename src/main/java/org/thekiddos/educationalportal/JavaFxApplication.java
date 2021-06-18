@@ -10,6 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.thekiddos.educationalportal.constants.ViewName;
 import org.thekiddos.educationalportal.gui.SceneManager;
+import org.thekiddos.educationalportal.gui.controllers.CourseDetailController;
 import org.thekiddos.educationalportal.gui.controllers.InstructorDashboardController;
 import org.thekiddos.educationalportal.gui.controllers.RegisterLoginController;
 import org.thekiddos.educationalportal.gui.controllers.StudentDashboardController;
@@ -36,7 +37,7 @@ public class JavaFxApplication extends Application {
         Parent courseDetailsView = fxWeaver.loadView( CourseDetailController.class );
 
         Scene scene = new Scene( loginRegisterView );
-
+        scene.getStylesheets().add( Utils.ROOT_STYLE_CLASS );
         SceneManager.setScene( scene );
         SceneManager.addView( ViewName.LOGIN_REGISTER, loginRegisterView );
         SceneManager.addView( ViewName.INSTRUCTOR_DASHBOARD, instructorDashboardView );

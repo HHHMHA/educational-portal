@@ -3,12 +3,12 @@ package org.thekiddos.educationalportal.gui.controllers;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
-import javafx.event.ActionEvent;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Controller;
 import org.thekiddos.educationalportal.models.User;
 import org.thekiddos.educationalportal.models.Course;
+
+import java.util.Collection;
 
 @Controller
 @FxmlView( "course-details.fxml" )
@@ -24,8 +24,7 @@ public class CourseDetailController {
         fillStudents( course.getStudents() );
     }
     
-    // TODO: set type list or collection
-    private void fillStudents( Set<Student> students ) {
+    private void fillStudents( Collection<User> students ) {
         studentListView.getItems().clear();
         studentListView.getItems().addAll( students );
     }

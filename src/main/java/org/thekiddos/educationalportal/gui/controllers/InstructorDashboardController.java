@@ -30,11 +30,11 @@ public class InstructorDashboardController {
 
     private final UserService userService;
     private final CourseService courseService;
-    private final CourseDetailsController courseDetailsController;
+    private final CourseDetailController courseDetailsController;
     private List<Course> courseList = new ArrayList<>();
 
     @Autowired
-    public InstructorDashboardController( UserService userService, CourseService courseService, CourseDetailsController courseDetailsController ) {
+    public InstructorDashboardController( UserService userService, CourseService courseService, CourseDetailController courseDetailsController ) {
         this.userService = userService;
         this.courseService = courseService;
         this.courseDetailsController = courseDetailsController;

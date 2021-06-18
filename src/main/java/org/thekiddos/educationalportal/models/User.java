@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -21,11 +22,11 @@ public class User {
     @NotNull @NotBlank
     private String type;
 
-    @ManyToMany
+    @ManyToMany( fetch = FetchType.EAGER )
     @JoinTable(name = "student_course",
             joinColumns = { @JoinColumn(name = "student_id") },
             inverseJoinColumns = { @JoinColumn(name = "course_id") })
-    private Set<Course> enrolledInCourses;
+    private Set<Course> enrolledInCourses = new HashSet<>();
 
     public boolean isStudent() {
         return type.equals( UserType.STUDENT );

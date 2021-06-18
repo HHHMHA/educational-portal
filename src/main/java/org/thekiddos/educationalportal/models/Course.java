@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -21,8 +22,8 @@ public class Course {
     @ManyToOne( cascade = CascadeType.DETACH ) @NotNull
     User instructor;
 
-    @ManyToMany(mappedBy="enrolledInCourses")
-    private Set<User> students;
+    @ManyToMany( mappedBy="enrolledInCourses", fetch = FetchType.EAGER)
+    private Set<User> students = new HashSet<>();
 
     @Override
     public boolean equals( Object o ) {
