@@ -10,6 +10,8 @@ import java.net.URL;
 
 public final class Utils {
     public static final String STYLESHEET_PATH = Utils. getResource( "static/css/style.css" ).toExternalForm();
+    // Image Credits: https://dribbble.com/Justicon
+    public static final String LOGO_PATH = Utils. getResource( "static/images/logo.png" ).toExternalForm();
     public static final String ROOT_STYLE_CLASS = "body";
     public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 

@@ -9,25 +9,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:controller="org.thekiddos.educationalportal.gui.controllers.InstructorDashboardController" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="body" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="body" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thekiddos.educationalportal.gui.controllers.InstructorDashboardController">
    <children>
-      <JFXTextField alignment="CENTER" onAction="#search" fx:id="searchField" promptText="Search" styleClass="text-field">
+      <JFXTextField fx:id="searchField" alignment="CENTER" onAction="#search" onKeyTyped="#search" promptText="Search" styleClass="text-field" VBox.vgrow="NEVER">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXListView fx:id="courseListView" />
-      <JFXTextField fx:id="courseNameField" alignment="CENTER" promptText="Name" styleClass="text-field">
+      <JFXListView fx:id="courseListView" maxHeight="1.7976931348623157E308" showTooltip="true" VBox.vgrow="ALWAYS" />
+      <JFXTextField fx:id="courseNameField" alignment="CENTER" promptText="Name" styleClass="text-field" VBox.vgrow="NEVER">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextArea fx:id="courseDescriptionField" promptText="Description" styleClass="text-area" wrapText="true">
+      <JFXTextArea fx:id="courseDescriptionField" promptText="Description" styleClass="text-area" wrapText="true" VBox.vgrow="NEVER">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
       </JFXTextArea>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
          <children>
             <JFXButton alignment="CENTER" defaultButton="true" maxWidth="1.7976931348623157E308" onAction="#addCourse" text="Add Course" HBox.hgrow="ALWAYS">
                <font>

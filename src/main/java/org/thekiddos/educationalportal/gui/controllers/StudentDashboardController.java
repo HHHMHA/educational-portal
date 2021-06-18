@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Component;
 import org.thekiddos.educationalportal.Utils;
@@ -39,7 +40,7 @@ public class StudentDashboardController {
         enrollBtn.disableProperty().bind( courseListView.getSelectionModel().selectedItemProperty().isNull() );
     }
 
-    public void search( ActionEvent actionEvent ) {
+    public void search( Event actionEvent ) {
         var searchQuery = searchField.getText();
 
         var filteredCourses = courseList.stream().filter(

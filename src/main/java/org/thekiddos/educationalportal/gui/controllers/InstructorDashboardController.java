@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -44,7 +45,7 @@ public class InstructorDashboardController {
         courseDetailsBtn.disableProperty().bind( courseListView.getSelectionModel().selectedItemProperty().isNull() );
     }
 
-    public void search( ActionEvent actionEvent ) {
+    public void search( Event actionEvent ) {
         var searchQuery = searchField.getText();
 
         var filteredCourses = courseList.stream().filter(
@@ -69,6 +70,9 @@ public class InstructorDashboardController {
         try {
             courseService.addCourse( currentUser, courseNameField.getText(), courseDescriptionField.getText() );
             refresh();
+
+            courseNameField.clear();
+            courseDescriptionField.clear();
         }
         catch ( Exception e ) {
             e.printStackTrace();

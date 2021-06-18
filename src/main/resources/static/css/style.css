@@ -23,6 +23,11 @@
     -fx-text-fill: yellow;
 }
 
+.form-control {
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
+
 .jfx-text-field {
     -fx-text-fill: white;
     -fx-fill: white;
@@ -332,6 +337,7 @@
 
 .list-cell {
     -fx-background-color: transparent;
+    -fx-text-fill: white;
 }
 
 .list-cell:selected {

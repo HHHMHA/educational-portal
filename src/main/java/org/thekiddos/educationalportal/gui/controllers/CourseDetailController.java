@@ -3,8 +3,11 @@ package org.thekiddos.educationalportal.gui.controllers;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Controller;
+import org.thekiddos.educationalportal.constants.ViewName;
+import org.thekiddos.educationalportal.gui.SceneManager;
 import org.thekiddos.educationalportal.models.User;
 import org.thekiddos.educationalportal.models.Course;
 
@@ -27,5 +30,9 @@ public class CourseDetailController {
     private void fillStudents( Collection<User> students ) {
         studentListView.getItems().clear();
         studentListView.getItems().addAll( students );
+    }
+
+    public void goBack( ActionEvent actionEvent ) {
+        SceneManager.setView( ViewName.INSTRUCTOR_DASHBOARD );
     }
 }

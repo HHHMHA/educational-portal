@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -37,7 +38,8 @@ public class JavaFxApplication extends Application {
         Parent courseDetailsView = fxWeaver.loadView( CourseDetailController.class );
 
         Scene scene = new Scene( loginRegisterView );
-        scene.getStylesheets().add( Utils.ROOT_STYLE_CLASS );
+        scene.getStylesheets().add( Utils.STYLESHEET_PATH );
+
         SceneManager.setScene( scene );
         SceneManager.addView( ViewName.LOGIN_REGISTER, loginRegisterView );
         SceneManager.addView( ViewName.INSTRUCTOR_DASHBOARD, instructorDashboardView );
@@ -45,6 +47,9 @@ public class JavaFxApplication extends Application {
         SceneManager.addView( ViewName.COURSE_DETAILS_INSTRUCTOR, courseDetailsView );
 
         stage.setScene( scene );
+        stage.setTitle( "Educational Portal" );
+        stage.getIcons().add( new Image( Utils.LOGO_PATH ) );
+        stage.setResizable( false );
         stage.show();
     }
 
