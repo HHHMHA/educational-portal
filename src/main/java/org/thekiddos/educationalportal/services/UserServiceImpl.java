@@ -1,12 +1,15 @@
 package org.thekiddos.educationalportal.services;
 
 import org.springframework.stereotype.Service;
+import org.thekiddos.educationalportal.models.Course;
 import org.thekiddos.educationalportal.models.User;
 import org.thekiddos.educationalportal.reposotories.UserRepository;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
-    private User authenticatedUser;
+    private String authenticatedUserName;
     private final UserRepository userRepository;
 
     public UserServiceImpl( UserRepository userRepository ) {
@@ -20,7 +23,7 @@ public class UserServiceImpl implements UserService {
         if ( !user.checkPassword( password ) )
             throw new RuntimeException( "Wrong password" );
 
-        authenticatedUser = user;
+        authenticatedUserName = user.getUsername();
         return user;
     }
 
@@ -38,18 +41,23 @@ public class UserServiceImpl implements UserService {
         newUser = userRepository.save( newUser );
 
         if ( login )
-            authenticatedUser = newUser;
+            authenticatedUserName = newUser.getUsername();
 
         return newUser;
     }
 
     @Override
     public void logout() {
-        authenticatedUser = null;
+        authenticatedUserName = null;
     }
 
     @Override
     public User getAuthenticatedUser() {
-        return authenticatedUser;
+        return userRepository.findById( authenticatedUserName ).orElse( null );
+    }
+
+    @Override
+    public List<User> getStudentsForCourse( Course course ) {
+        return userRepository.findByEnrolledInCoursesContains( course );
     }
 }

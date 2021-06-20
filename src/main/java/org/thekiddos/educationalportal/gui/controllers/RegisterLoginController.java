@@ -46,8 +46,10 @@ public class RegisterLoginController {
         try {
             var user = userService.login( nameField.getText(), passwordField.getText() );
             if ( user.isStudent() ) {
+                studentDashboardController.refresh();
                 SceneManager.setView( ViewName.STUDENT_DASHBOARD );
             } else {
+                instructorDashboardController.refresh();
                 SceneManager.setView( ViewName.INSTRUCTOR_DASHBOARD );
             }
         }
@@ -61,6 +63,7 @@ public class RegisterLoginController {
         try {
             var user = userService.register( registerNameField.getText(), registerPasswordField.getText(), getUserType(), true );
             if ( user.isStudent() ) {
+                studentDashboardController.refresh();
                 SceneManager.setView( ViewName.STUDENT_DASHBOARD );
             } else {
                 instructorDashboardController.refresh();

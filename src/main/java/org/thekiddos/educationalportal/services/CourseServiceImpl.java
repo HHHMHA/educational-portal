@@ -36,8 +36,10 @@ public class CourseServiceImpl implements CourseService {
         if ( user.isInstructor() )
             return courseRepository.findAllByInstructor( user );
 
-        if ( user.isStudent() )
-            return new ArrayList<>( user.getEnrolledInCourses() );
+        if ( user.isStudent() ) {
+            var refreshedUser = userRepository.findById( user.getUsername() ).orElseThrow( () -> new RuntimeException( "Something went wrong" ) );
+            return List.copyOf( refreshedUser.getEnrolledInCourses() );
+        }
 
         return new ArrayList<>();
     }
@@ -52,10 +54,10 @@ public class CourseServiceImpl implements CourseService {
         if ( !student.isStudent() )
             throw new RuntimeException( "You are not a student" );
 
-        course.addStudent( student );
-        student.addCourse( course );
+        if ( student.getEnrolledInCourses().contains( course ) )
+            throw new RuntimeException( "You already enrolled" );
 
-        courseRepository.save( course );
+        student.addCourse( course );
         userRepository.save( student );
     }
 }

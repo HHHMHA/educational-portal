@@ -10,6 +10,7 @@ import org.thekiddos.educationalportal.constants.ViewName;
 import org.thekiddos.educationalportal.gui.SceneManager;
 import org.thekiddos.educationalportal.models.User;
 import org.thekiddos.educationalportal.models.Course;
+import org.thekiddos.educationalportal.services.UserService;
 
 import java.util.Collection;
 
@@ -20,11 +21,17 @@ public class CourseDetailController {
     public JFXTextArea courseDescriptionField;
     public JFXListView<User> studentListView;
 
+    private final UserService userService;
+
+    public CourseDetailController( UserService userService ) {
+        this.userService = userService;
+    }
+
     public void showCourse( Course course ) {
         courseNameField.setText( course.getName() );
         courseDescriptionField.setText( course.getDescription() );
         
-        fillStudents( course.getStudents() );
+        fillStudents( userService.getStudentsForCourse( course ) );
     }
     
     private void fillStudents( Collection<User> students ) {

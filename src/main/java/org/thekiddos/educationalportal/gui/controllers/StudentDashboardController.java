@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.scene.control.ListCell;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Component;
 import org.thekiddos.educationalportal.Utils;
@@ -81,12 +82,11 @@ public class StudentDashboardController {
 
         try {
             courseService.enrollInCourse( courseListView.getSelectionModel().getSelectedItem(), currentUser );
+            refresh();
         }
         catch ( Exception e ) {
             e.printStackTrace();
             Utils.showStandardErrorAlert( e.getMessage() );
         }
-
-        refresh();
     }
 }

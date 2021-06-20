@@ -15,7 +15,7 @@ import java.util.Set;
 @Entity
 @Data
 public class User {
-    @Id @NotNull @NotBlank @Column( unique = true ) @Size( min = 3)
+    @Id @NotNull @NotBlank @Column( unique = true ) @Size( min = 3 )
     private String username;
     @NotNull @NotBlank
     private String password;
